@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import {FiPlus, FiArrowRight} from "react-icons/fi"
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
@@ -18,12 +18,14 @@ interface Orphanage{
 
 function OrphanagesMap(){
     const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
-
-
+    const history = useHistory()
     useEffect(() => {
+        const hasToken = localStorage.getItem('token');
+        if(!hasToken){
+            history.push('/pleaseLogin')
+        }
         api.get('orphanages').then(response => {
             setOrphanages(response.data);
-            console.log(response)
         })
     },[]);
 

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
 import { Map, Marker, TileLayer } from "react-leaflet";
-import {useParams} from 'react-router-dom'
+import {useHistory, useParams} from 'react-router-dom'
 
 
 import '../styles/pages/orphanage.css';
@@ -33,8 +33,15 @@ export default function Orphanage() {
   const params = useParams<OrphanageParams>()
   const [orphanage, setOrphanage] = useState<Orphanage>();
   const [activeImageIndex, setActiveImageIndex] = useState(0)
+  const history = useHistory();
 
     useEffect(() => {
+      const hasToken = localStorage.getItem('token');
+        if(!hasToken){
+            history.push('/pleaseLogin')
+        }
+
+
         api.get(`orphanages/${params.id}`).then(response => {
             setOrphanage(response.data);
             console.log(response)

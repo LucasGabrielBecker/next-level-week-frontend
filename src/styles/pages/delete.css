@@ -1,0 +1,45 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(329.54deg, #FF669D 0%, #dc3975 100%);
+
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    max-width: 450px;
+}
+
+.content h2{
+    font-size: 85px;
+}
+
+.content h4{
+    font-size: 24px;
+}
+
+.btn-goBack:hover{
+    background-color: #FF669D;
+
+}
+.btn-goBack{
+    transition: background-color .3s ease;
+    background-color: #dc3975;
+    padding: 20px;
+    margin-top: 80px;
+    border-radius: 20px;
+}
+
+.btn-goBack span{
+    color: #FFF;
+    font-size: 18px;
+}

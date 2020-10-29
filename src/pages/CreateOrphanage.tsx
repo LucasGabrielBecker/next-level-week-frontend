@@ -57,7 +57,7 @@ export default function CreateOrphanage() {
     //alterar futuramente para um toast
 
     alert('cadastro realizado com sucesso')
-    history.push('/app')
+    history.push('/allDone')
 
   }
 
